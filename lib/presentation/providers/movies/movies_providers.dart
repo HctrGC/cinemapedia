@@ -4,7 +4,25 @@ import 'package:cinemapedia/domain/entities/movie.dart';
 import 'package:cinemapedia/presentation/providers/movies/movies_repository_provider.dart';
 
 final nowPlayingMoviesProvider = StateNotifierProvider((ref) {
-  final fetchMoreMovies = ref.watch(movieRepositoryProvider).getNowPlayingMovies;
+  final fetchMoreMovies = ref.watch(movieRepositoryProvider).getNowPlaying;
+
+  return MoviesNotifier(fetchMoreMovies: fetchMoreMovies);
+});
+
+final popularMoviesProvider = StateNotifierProvider((ref) {
+  final fetchMoreMovies = ref.watch(movieRepositoryProvider).getPopular;
+
+  return MoviesNotifier(fetchMoreMovies: fetchMoreMovies);
+});
+
+final topRatedMoviesProvider = StateNotifierProvider((ref) {
+  final fetchMoreMovies = ref.watch(movieRepositoryProvider).getTopRated;
+
+  return MoviesNotifier(fetchMoreMovies: fetchMoreMovies);
+});
+
+final upcomingMoviesProvider = StateNotifierProvider((ref) {
+  final fetchMoreMovies = ref.watch(movieRepositoryProvider).getUpcoming;
 
   return MoviesNotifier(fetchMoreMovies: fetchMoreMovies);
 });
